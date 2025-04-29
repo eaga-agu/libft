@@ -6,9 +6,11 @@
 /*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 14:29:54 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/04/22 15:27:02 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/04/29 11:21:14 by eaga-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//bzero es una función que pone en cero una cierta cantidad de memoria.
 
 #include "libft.h"
 #include <stddef.h>
@@ -42,4 +44,3 @@ int	main(void)
 	}
 	return (0);
 }*/
-//bzero es una función que pone en cero una cierta cantidad de memoria.

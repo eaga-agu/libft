@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 08:51:19 by eva               #+#    #+#             */
-/*   Updated: 2025/04/29 09:06:06 by eva              ###   ########.fr       */
+/*   Updated: 2025/04/29 11:20:38 by eaga-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,15 @@ para así poderlo utilizar en calculos
 Toma como parametro una cadena de caracteres:*nptr y 
 devuelve el valor del entero con su signo*/
 
-#include <libft.h>
-#include <stdio.h>
+#include "libft.h"
+//#include <stdio.h>
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
 
 int	ft_atoi(const char *nptr)
 {
@@ -26,16 +33,19 @@ int	ft_atoi(const char *nptr)
 	sign = 1;
 	result = 0;
 	
-	while(*nptr == ' ' || *nptr == '\n' || *nptr == '\t' ||*nptr == '\f' ||
+	while (*nptr == ' ' || *nptr == '\n' || *nptr == '\t' ||*nptr == '\f' ||
 	*nptr == '\v' || *nptr == '\r')
 	{
 		nptr++;
 	}
-	if(*nptr == -1);
+	if (*nptr == '-')
 	{
-		sign = 1;
+		sign = -1;
+		nptr++;
 	}
-	if(ft_isdigit(*nptr))
+	else if (*nptr == '+')
+		nptr++;
+	while (ft_isdigit(*nptr))
 	{
 		result = result*10 + (*nptr -'0');
 		nptr++;
@@ -43,3 +53,13 @@ int	ft_atoi(const char *nptr)
 	result *= sign;
 	return (result);
 }
+/*int	main(void)
+{
+	const char *ejemplo1 = "1234";
+	const char *ejemplo2 = "-452";
+	const char *ejemplo3 = "  \n \t +999abc";
+	printf("resultado 1: %d\n", ft_atoi(ejemplo1));
+	printf("resultado 2: %d\n", ft_atoi(ejemplo2));
+	printf("resultado 3: %d\n", ft_atoi(ejemplo3));
+	return (0);
+}*/

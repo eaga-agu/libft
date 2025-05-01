@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 16:40:45 by eva               #+#    #+#             */
-/*   Updated: 2025/05/01 09:24:30 by eva              ###   ########.fr       */
+/*   Updated: 2025/05/01 10:53:46 by eaga-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,53 +16,51 @@ y hace una reserva de memoria con malloc*/
 
 #include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include <limits.h>
 
 static int	ft_numlen(int num)
 {
-	int len;
-	
+	int	len;
+
 	if (num <= 0)
-    	len = 1;
+		len = 1;
 	else
-    	len = 0;
+		len = 0;
 	while (num)
 	{
 		num /= 10;
-		len++;
+			len++;
 	}
 	return (len);
 }
 
 char	*ft_itoa(int nbr)
 {
-	long	pos;
+	long	num;
 	char	*res;
-	int 	len;
+	int		len;
 
+	num = (long)nbr;
 	len = ft_numlen(nbr);
 	res = (char *)malloc((len + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
-	pos = len - 1;
-	if (nbr < 0)
+	res[len] = '\0';
+	if (num < 0)
 	{
-		if (nbr == INT_MIN)
-			return ("-2147483648");
-		nbr = nbr * -1;
 		res[0] = '-';
-	}	
-	while (nbr > 9)
+		num = - num;
+	}
+	if (num == 0)
+		res[0] = '0';
+	while (num > 0)
 	{
-		res[pos] = (nbr % 10) + '0';
-		nbr = nbr / 10;
-		pos--;
-		res[pos] = nbr + '0';
+		res[--len] = (num % 10) + '0';
+		num /= 10;
 	}
 	return (res);
 }
-int	main(void)
+/*int	main(void)
 {
 	int numeros[] = {0, 123, -456, 2147483647, -2147483648};
 	int cantidad = sizeof(numeros) / sizeof(numeros[0]);
@@ -81,4 +79,4 @@ int	main(void)
 		}
 	}
 		return 0;
-}
+}*/

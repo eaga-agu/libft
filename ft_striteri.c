@@ -6,9 +6,15 @@
 /*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 15:28:52 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/05/01 15:41:34 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/02 10:19:44 by eaga-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*A cada caracter de la string s se aplica la función f
+dando com parámetros el indice y la dirección del propio
+caracter que podrá mdoificarse. A diferencia del strmapi
+no se crea una nueva función si no que se modifica
+la función original*/
 
 #include "libft.h"
 

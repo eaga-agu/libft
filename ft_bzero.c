@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 14:29:54 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/04/29 11:21:14 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/03 11:38:00 by eva              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,18 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t			i;
 	unsigned char	*str;
+	size_t			i;
 
 	str = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{
-		str[i] = '0';
+		str[i] = 0;
 		i++;
 	}
 }
+
 /*#include <stdio.h>
 
 int	main(void)

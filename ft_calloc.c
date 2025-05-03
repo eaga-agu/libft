@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 15:44:44 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/04/29 16:54:30 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/03 11:52:47 by eva              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*p;
 
 	p = malloc (nmemb * size);
+	if (nmemb && size && nmemb > __SIZE_MAX__ / size)
+		return (NULL);
 	if (!p)
 		return (NULL);
 	ft_bzero (p, (nmemb * size));

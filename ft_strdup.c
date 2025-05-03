@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 09:42:37 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/04/30 10:07:56 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/03 12:05:13 by eva              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strdup(const char *s1)
 	char	*copy;
 	size_t	i;
 
-	copy = (char *)malloc(sizeof(char) * ft_strlen(s1 + 1));
+	copy = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
 	if (!copy)
 		return (NULL);
 	i = 0;

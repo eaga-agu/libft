@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 16:40:45 by eva               #+#    #+#             */
-/*   Updated: 2025/05/01 10:53:46 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/03 08:51:05 by eva              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*hacer una función que coja un numero entero int en una cadena terminada en null
+/*hacer una función que coja un numero entero int 
+en una cadena terminada en null
 La función devuelve como resultado un arreglo de caracteres
 y hace una reserva de memoria con malloc*/
 
@@ -29,7 +30,7 @@ static int	ft_numlen(int num)
 	while (num)
 	{
 		num /= 10;
-			len++;
+		len++;
 	}
 	return (len);
 }
@@ -49,7 +50,7 @@ char	*ft_itoa(int nbr)
 	if (num < 0)
 	{
 		res[0] = '-';
-		num = - num;
+		num = -num;
 	}
 	if (num == 0)
 		res[0] = '0';

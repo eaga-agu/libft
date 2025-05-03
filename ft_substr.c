@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 10:36:06 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/04/30 11:28:25 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/03 08:43:02 by eva              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,21 @@ char	*ft_strdup(const char *s1);
 
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	{
-		char	*substr;
-	
-		if (!s)
-			return (NULL);
-		if (ft_strlen(s) < start)
-			return (ft_strdup(""));
-		if (len > ft_strlen(s + start))
-			len = ft_strlen(s + start);
-		substr = malloc(sizeof(char) * (len + 1));
-		if (!substr)
-			return (NULL);
-		ft_strlcpy(substr, s + start, len + 1);
-		return (substr);
-	}
+	char	*substr;
+
+	if (!s)
+		return (NULL);
+	if (ft_strlen(s) < start)
+		return (ft_strdup(""));
+	if (len > ft_strlen(s + start))
+		len = ft_strlen(s + start);
+	substr = malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
+	ft_strlcpy(substr, s + start, len + 1);
+	return (substr);
 }
+
 /*int	main(void)
 {
 	char			*s = "Hola Mundo";

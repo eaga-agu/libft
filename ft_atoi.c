@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 08:51:19 by eva               #+#    #+#             */
-/*   Updated: 2025/04/29 11:20:38 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/03 09:34:03 by eva              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,18 @@ devuelve el valor del entero con su signo*/
 #include "libft.h"
 //#include <stdio.h>
 
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
 int	ft_atoi(const char *nptr)
 {
 	int	sign;
 	int	result;
-	
+	int	i;
+
+	i = 0;
 	sign = 1;
 	result = 0;
-	
-	while (*nptr == ' ' || *nptr == '\n' || *nptr == '\t' ||*nptr == '\f' ||
-	*nptr == '\v' || *nptr == '\r')
-	{
+	while (*nptr == ' ' || *nptr == '\n' || *nptr == '\t' || *nptr == '\f'
+		|| *nptr == '\v' || *nptr == '\r')
 		nptr++;
-	}
 	if (*nptr == '-')
 	{
 		sign = -1;
@@ -45,10 +37,10 @@ int	ft_atoi(const char *nptr)
 	}
 	else if (*nptr == '+')
 		nptr++;
-	while (ft_isdigit(*nptr))
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		result = result*10 + (*nptr -'0');
-		nptr++;
+		result = result * 10 + (nptr[i] - '0');
+		i++;
 	}
 	result *= sign;
 	return (result);

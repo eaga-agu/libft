@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 11:40:27 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/04/30 12:11:50 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/03 08:41:58 by eva              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 la función reserva memoria para que quepa ese nuevo string.
 Hay que liberar el espacio con free*/
 
-#include"libft.h"
+#include "libft.h"
 #include <stdlib.h>
 #include <stdio.h>
 

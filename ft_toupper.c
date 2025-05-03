@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 13:14:32 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/04/23 14:13:56 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/03 08:30:56 by eva              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,3 @@ int	main(void)
 }*/
 //convierte las minusculas en mayusculas 
 //Si no son minusculas devuelve el caracter tal cual
-

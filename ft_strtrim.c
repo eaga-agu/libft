@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 12:32:55 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/04/30 13:44:24 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/03 08:40:25 by eva              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (ft_strchr(set, *s1) && *s1)
 		s1++;
 	i = ft_strlen(s1);
-	while (ft_strchr(set, s1[i-1]) && i > 0)
+	while (ft_strchr(set, s1[i - 1]) && i > 0)
 		i--;
 	return (ft_substr(s1, 0, i));
 }

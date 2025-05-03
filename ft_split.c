@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 11:04:34 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/05/01 14:38:21 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/03 13:53:36 by eva              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,74 +32,89 @@ que a diferencia de la ft_strdup copia como máximo n
 es decir copia las letras de una palabra,
 terminando siempre con NULL la cadena copiada*/
 
+/* asigna memoria dinamica a un array de strings al separar la strng "s"
+en substrings con el caracter "c" como delimitador */
+
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-static int	ft_contwrd(char const *s, char c)
+static size_t	count_words(char const *s, char c)
 {
-	unsigned int	i;
-	int				cntr;
+	size_t	count;
 
-	i = 0;
-	cntr = 0;
-	while (s[i])
+	count = 0;
+	while (*s && *s == c)
+		s++;
+	while (*s)
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != '\0')
-			cntr++;
-		while (s[i] && (s[i] != c))
-			i++;
+		count++;
+		while (*s && *s != c)
+			s++;
+		while (*s && *s == c)
+			s++;
 	}
-	return (cntr);
+	return (count);
 }
 
-static char	*ft_strndup(const char *s, size_t n)
+static char	*get_word(const char *str, int start, int stop)
 {
-	char	*str;
-	size_t	i;
+	char	*word;
+	int		i;
 
-	str = (char *)malloc(sizeof(char) * n + 1);
-	if (str == NULL)
+	word = malloc(sizeof(char) * (stop - start + 1));
+	if (!word)
 		return (NULL);
-	i = 0;
-	while (i < n && s[i])
-	{
-		str[i] = s[i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	i = -1;
+	while (++i < (stop - start))
+		word[i] = str[start + i];
+	word[i] = 0;
+	return (word);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**free_all(char **split)
 {
-	int				i;
-	int				j;
-	int				k;
-	char			**tab;
+	int	i;
 
-	i = 0;
-	k = 0;
-	tab = (char **)malloc(sizeof(char *) * (ft_contwrd(s, c)) + 1);
-	if (tab == NULL)
+	i = -1;
+	while (split[++i])
+		free(split[i]);
+	free(split);
+	return (NULL);
+}
+
+static void	skip_first_delimiter(const char *str, char c, int *i, int *start)
+{
+	*i = 0;
+	while (str[*i] && str[*i] == c)
+		(*i)++;
+	*start = *i;
+	*i -= 1;
+}
+
+char	**ft_split(const char *str, char c)
+{
+	char	**split;
+	int		i;
+	int		word;
+	int		start;
+
+	split = malloc(sizeof(char *) * (count_words(str, c) + 1));
+	if (!split)
 		return (NULL);
-	while (s[i])
+	word = 0;
+	skip_first_delimiter(str, c, &i, &start);
+	while (str[++i])
 	{
-		while (s[i] == c)
-			i++;
-		j = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > j)
+		if (str[i + 1] == c || !str[i + 1])
 		{
-			tab[k] = ft_strndup(s + j, i - j);
-			k++;
+			split[word] = get_word(str, start, i + 1);
+			if (!split[word++])
+				return (free_all(split));
+			while (str[i + 1] && str[i + 1] == c)
+				start = ++i + 1;
 		}
 	}
-	tab[k] = NULL;
-	return (tab);
+	split[word] = NULL;
+	return (split);
 }
 /*int main(void)
 {

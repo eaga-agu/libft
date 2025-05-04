@@ -6,7 +6,7 @@
 /*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 11:04:34 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/05/03 13:53:36 by eva              ###   ########.fr       */
+/*   Updated: 2025/05/04 08:16:37 by eva              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ char	**ft_split(const char *str, char c)
 	int		word;
 	int		start;
 
+	if (! str)
+		return (NULL);
 	split = malloc(sizeof(char *) * (count_words(str, c) + 1));
 	if (!split)
 		return (NULL);

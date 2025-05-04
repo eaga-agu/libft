@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 10:51:15 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/05/02 11:05:31 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/04 08:29:37 by eva              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ el int fd puede ser 0 (teclado), 1 (pantalla), 2 (archivo)*/
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	write(fd, s, ft_strlen(s));
 }
 

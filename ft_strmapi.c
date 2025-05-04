@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 15:00:41 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/05/01 15:17:50 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/04 08:22:02 by eva              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t			len;
 	char			*newstring;
 
+	if (!s || !f)
+		return (NULL);
 	len = 0;
 	while (s[len] != '\0')
 		len++;

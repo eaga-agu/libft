@@ -6,7 +6,7 @@
 /*   By: eva <eva@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 11:30:29 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/05/03 09:13:20 by eva              ###   ########.fr       */
+/*   Updated: 2025/05/04 11:04:11 by eva              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,8 @@ void	ft_putnbr_fd(int n, int fd)
 		n = -n;
 	}
 	if (n >= 10)
-	{
 		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd((n % 10) + '0', fd);
-	}
+	ft_putchar_fd((n % 10) + '0', fd);
 }
 
 /*int main(void)
